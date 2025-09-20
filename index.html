@@ -11,9 +11,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.css">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.js"></script>
 </head>
-<body>
+<body class="dark">
     <header x-data="{ mobileMenuOpen: false, scrollProgress: 0 }" 
             @scroll.window="scrollProgress = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100">
         <div class="scroll-progress" :style="`width: ${scrollProgress}%`"></div>
@@ -26,18 +28,10 @@
                 <li><a href="#skills" @click="mobileMenuOpen = false">Skills</a></li>
                 <li><a href="#experience" @click="mobileMenuOpen = false">Experience</a></li>
                 <li><a href="#contact" @click="mobileMenuOpen = false">Contact</a></li>
-                <li>
-                    <button @click="document.documentElement.classList.toggle('dark'); localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light')" 
-                            class="theme-toggle" 
-                            aria-label="Toggle theme">
-                        <span x-show="!document.documentElement.classList.contains('dark')">🌙</span>
-                        <span x-show="document.documentElement.classList.contains('dark')">☀️</span>
-                    </button>
-                </li>
             </ul>
             <button class="mobile-menu-toggle" @click="mobileMenuOpen = !mobileMenuOpen" aria-label="Toggle mobile menu">
-                <span x-show="!mobileMenuOpen">☰</span>
-                <span x-show="mobileMenuOpen">✕</span>
+                <i data-lucide="menu" x-show="!mobileMenuOpen"></i>
+                <i data-lucide="x" x-show="mobileMenuOpen"></i>
             </button>
         </nav>
     </header>
@@ -45,7 +39,7 @@
     <main>
         <section class="hero">
             <div class="container">
-                <div class="hero-content">
+                <div class="hero-content" style="padding-top: 75px;">
                     <div class="hero-text">
                         <h1>Full Stack Engineer & Technical Leader</h1>
                         <p class="subtitle">10+ years of experience building scalable applications</p>
@@ -55,8 +49,8 @@
                             delivering technical solutions that drive business impact.
                         </p>
                         <div class="cta-buttons">
-                            <a href="#experience" class="btn btn-primary">View Experience</a>
-                            <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                            <a href="#experience" class="btn btn-primary" style="padding: 15px;">View Experience</a>
+                            <a href="#contact" class="btn btn-secondary text-alt-secondary" style="padding: 15px;">Get In Touch</a>
                         </div>
                     </div>
                     <div class="hero-visual" x-data="{ hoveredCard: null }">
@@ -65,42 +59,54 @@
                                  @mouseenter="hoveredCard = 'react'"
                                  @mouseleave="hoveredCard = null"
                                  :class="{ 'hovered': hoveredCard === 'react' }">
-                                <div class="tech-icon">⚛️</div>
+                                <div class="tech-icon">
+                                    <i data-lucide="atom" style="color: #61dafb;"></i>
+                                </div>
                                 <div class="tech-name">React/Next.js</div>
                             </div>
                             <div class="tech-card" 
                                  @mouseenter="hoveredCard = 'typescript'"
                                  @mouseleave="hoveredCard = null"
                                  :class="{ 'hovered': hoveredCard === 'typescript' }">
-                                <div class="tech-icon">🔷</div>
+                                <div class="tech-icon">
+                                    <i data-lucide="code" style="color: #3178c6;"></i>
+                                </div>
                                 <div class="tech-name">TypeScript</div>
                             </div>
                             <div class="tech-card" 
                                  @mouseenter="hoveredCard = 'go'"
                                  @mouseleave="hoveredCard = null"
                                  :class="{ 'hovered': hoveredCard === 'go' }">
-                                <div class="tech-icon">🟢</div>
+                                <div class="tech-icon">
+                                    <i data-lucide="terminal" style="color: #00add8;"></i>
+                                </div>
                                 <div class="tech-name">Go</div>
                             </div>
                             <div class="tech-card" 
                                  @mouseenter="hoveredCard = 'aws'"
                                  @mouseleave="hoveredCard = null"
                                  :class="{ 'hovered': hoveredCard === 'aws' }">
-                                <div class="tech-icon">☁️</div>
+                                <div class="tech-icon">
+                                    <i data-lucide="cloud" style="color: #ff9900;"></i>
+                                </div>
                                 <div class="tech-name">AWS</div>
                             </div>
                             <div class="tech-card" 
                                  @mouseenter="hoveredCard = 'cloudflare'"
                                  @mouseleave="hoveredCard = null"
                                  :class="{ 'hovered': hoveredCard === 'cloudflare' }">
-                                <div class="tech-icon">🛡️</div>
+                                <div class="tech-icon">
+                                    <i data-lucide="shield" style="color: #f38020;"></i>
+                                </div>
                                 <div class="tech-name">Cloudflare</div>
                             </div>
                             <div class="tech-card" 
                                  @mouseenter="hoveredCard = 'postgresql'"
                                  @mouseleave="hoveredCard = null"
                                  :class="{ 'hovered': hoveredCard === 'postgresql' }">
-                                <div class="tech-icon">🗄️</div>
+                                <div class="tech-icon">
+                                    <i data-lucide="database" style="color: #336791;"></i>
+                                </div>
                                 <div class="tech-name">PostgreSQL</div>
                             </div>
                         </div>
@@ -272,9 +278,18 @@
                         or just having a conversation about technology and engineering leadership.
                     </p>
                     <div class="contact-links">
-                        <a href="mailto:nandhika@example.com" class="contact-link">📧 Email Me</a>
-                        <a href="https://www.linkedin.com/in/nandhika-h-57753061/" class="contact-link">💼 LinkedIn</a>
-                        <a href="https://github.com/dilettantemode" class="contact-link">🐙 GitHub</a>
+                        <a href="mailto:nandhika.wph@gmail.com" class="contact-link">
+                            <i data-lucide="mail"></i>
+                            Email Me
+                        </a>
+                        <a href="https://www.linkedin.com/in/nandhika-h-57753061/" class="contact-link">
+                            <i data-lucide="linkedin"></i>
+                            LinkedIn
+                        </a>
+                        <a href="https://github.com/dilettantemode" class="contact-link">
+                            <i data-lucide="github"></i>
+                            GitHub
+                        </a>
                     </div>
                 </div>
             </div>
@@ -282,11 +297,11 @@
     </main>
 
     <script>
-        // Initialize theme from localStorage
+        // Initialize Lucide icons
         document.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark') {
-                document.documentElement.classList.add('dark');
+            // Initialize Lucide icons
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
             }
         });
 
@@ -326,13 +341,9 @@
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
-                header.style.background = document.documentElement.classList.contains('dark') 
-                    ? 'rgba(17, 24, 39, 0.98)' 
-                    : 'rgba(255, 255, 255, 0.98)';
+                header.style.background = 'rgba(17, 24, 39, 0.98)';
             } else {
-                header.style.background = document.documentElement.classList.contains('dark')
-                    ? 'rgba(17, 24, 39, 0.95)'
-                    : 'rgba(255, 255, 255, 0.95)';
+                header.style.background = 'rgba(17, 24, 39, 0.95)';
             }
         });
     </script>
