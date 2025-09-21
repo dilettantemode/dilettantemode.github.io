@@ -2,7 +2,7 @@
 // ================================================
 
 // Page transition functionality
-const timeoutDelayMs = 50;
+const timeoutDelayMs = 25;
 
 function pageTransition() {
     return {
