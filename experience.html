@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <title>Experience - Nandhika H.</title>
+    <meta name="description" content="Explore Nandhika H.'s professional experience and technical skills in software engineering, technical leadership, and cloud infrastructure.">
+    
+    <!-- Favicon and Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body class="dark">
+    <header x-data="{ ...scrollProgress() }" 
+            x-init="init()">
+        <div class="scroll-progress" :style="`width: ${scrollProgress}%`"></div>
+        <nav class="container">
+            <ul>
+                <li><a href="index.html" class="logo">
+                    <img src="apple-touch-icon.png" alt="Nandhika H." class="logo-img">
+                    <span class="logo-text">Nandhika H.</span>
+                </a></li>
+            </ul>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="experience.html" class="active">Experience</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main x-data="pageTransition()" x-init="init()">
+        <div class="bg-hero" style="padding-top: 15px; min-height: 75px; max-height: 450px;">
+            <div class="loading-overlay" x-show="isLoading" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+                <div class="loading-spinner"></div>
+            </div>
+            
+            <section class="page-hero page-content" :class="{ 'page-transition': !isLoaded, 'loaded': isLoaded }">
+                <div class="container">
+                    <h1 class="page-title hero-txt">Experience</h1>
+                    <p class="page-subtitle hero-txt">A decade of growth in software engineering and technical leadership</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Professional Experience Section -->
+        <section class="experience-detail page-content" :class="{ 'page-transition': !isLoaded, 'loaded': isLoaded }">
+            <div class="container">
+                <h2 class="section-title">Professional Experience</h2>
+                <div class="experience-timeline animate-stagger">
+                    <article class="experience-item">
+                        <div class="experience-card">
+                            <div class="experience-header">
+                                <div>
+                                    <h3 class="experience-title">Software Engineering Manager</h3>
+                                    <p class="experience-company">itemku (PT. Five Jack)</p>
+                                </div>
+                                <div class="experience-duration">2022 - Present</div>
+                            </div>
+                            <p class="experience-description">
+                                Driving technical solutions, cost efficiency, and cross-functional collaboration — 
+                                delivering high-impact product and infrastructure initiatives while growing a resilient, 
+                                adaptable engineering team.
+                            </p>
+                            <ul class="achievements">
+                                <li>Led and mentored a team of software engineers, driving delivery of product and technical OKRs</li>
+                                <li>Guided team through ISO 27001 Personal Data Protection compliance with data masking implementation</li>
+                                <li>Directed email migration to multirealmgames domain (90% completion, zero major disruption)</li>
+                                <li>Managed Imperva → Cloudflare migration, reducing infrastructure cost from $2,000 to $250/month</li>
+                                <li>Led large-scale frontend rewrite initiative, improving performance scores from &lt;50 to above industry leaders</li>
+                                <li>Facilitated SEO improvements by deploying WordPress and optimizing nginx</li>
+                                <li>Supervised technical upgrades: Laravel & PHP upgrades, RDS database consolidation</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="experience-item">
+                        <div class="experience-card">
+                            <div class="experience-header">
+                                <div>
+                                    <h3 class="experience-title">Lead Software Engineer</h3>
+                                    <p class="experience-company">itemku (PT. Five Jack)</p>
+                                </div>
+                                <div class="experience-duration">Aug 2020 - Dec 2021</div>
+                            </div>
+                            <p class="experience-description">
+                                Led a team of frontend and backend engineers to build and scale a user-generated content platform.
+                            </p>
+                            <ul class="achievements">
+                                <li>Designed Next.js-based frontend architecture, improving maintainability and performance</li>
+                                <li>Managed day-to-day engineering operations, ensuring alignment between technical priorities and product objectives</li>
+                                <li>Collaborated closely with Product Owners to define requirements and deliver features on time</li>
+                                <li>Mentored engineers on best practices for code quality, scalability, and cross-functional collaboration</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="experience-item">
+                        <div class="experience-card">
+                            <div class="experience-header">
+                                <div>
+                                    <h3 class="experience-title">Software Engineer</h3>
+                                    <p class="experience-company">itemku (PT. Five Jack)</p>
+                                </div>
+                                <div class="experience-duration">May 2015 - Aug 2020</div>
+                            </div>
+                            <p class="experience-description">
+                                Developed and maintained frontend and backend features for a high-traffic e-commerce platform.
+                            </p>
+                            <ul class="achievements">
+                                <li>Built responsive and user-friendly interfaces to improve user engagement and conversion rates</li>
+                                <li>Implemented backend APIs and services to support new product features and integrations</li>
+                                <li>Integrated several 3rd party payment services for the system</li>
+                                <li>Collaborated with cross-functional teams (Design, Product, SM) to ensure smooth feature rollouts</li>
+                                <li>Contributed to platform scalability and performance improvements through code optimization</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="experience-item">
+                        <div class="experience-card">
+                            <div class="experience-header">
+                                <div>
+                                    <h3 class="experience-title">Freelancer</h3>
+                                    <p class="experience-company">Various Clients</p>
+                                </div>
+                                <div class="experience-duration">Jul 2012 - Apr 2015</div>
+                            </div>
+                            <p class="experience-description">
+                                Provided software development services to various clients, building custom solutions and applications.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Skills Section -->
+        <section class="skills-detail page-content" :class="{ 'page-transition': !isLoaded, 'loaded': isLoaded }">
+            <div class="container">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-grid animate-stagger">
+                    <article class="skill-category">
+                        <div class="skill-header">
+                            <i data-lucide="monitor" class="skill-icon"></i>
+                            <h3>Frontend Development</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">TypeScript</span>
+                            <span class="skill-tag">Next.js</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Svelte</span>
+                            <span class="skill-tag">HTML5</span>
+                            <span class="skill-tag">CSS3</span>
+                            <span class="skill-tag">Tailwind CSS</span>
+                        </div>
+                        <p class="skill-description">
+                            Building responsive, performant user interfaces with modern frameworks and tools. 
+                            Expert in component architecture, state management, and optimization techniques.
+                        </p>
+                    </article>
+
+                    <article class="skill-category">
+                        <div class="skill-header">
+                            <i data-lucide="server" class="skill-icon"></i>
+                            <h3>Backend Development</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Go</span>
+                            <span class="skill-tag">PHP</span>
+                            <span class="skill-tag">Laravel</span>
+                            <span class="skill-tag">Koa.js</span>
+                            <span class="skill-tag">REST APIs</span>
+                            <span class="skill-tag">GraphQL</span>
+                            <span class="skill-tag">Microservices</span>
+                        </div>
+                        <p class="skill-description">
+                            Designing and implementing scalable backend systems, APIs, and microservices. 
+                            Focus on performance, security, and maintainable code architecture.
+                        </p>
+                    </article>
+
+                    <article class="skill-category">
+                        <div class="skill-header">
+                            <i data-lucide="cloud" class="skill-icon"></i>
+                            <h3>Cloud & Infrastructure</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">EC2/ECS</span>
+                            <span class="skill-tag">Lambda</span>
+                            <span class="skill-tag">S3</span>
+                            <span class="skill-tag">Cloudflare</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">CI/CD</span>
+                        </div>
+                        <p class="skill-description">
+                            Managing cloud infrastructure, implementing DevOps practices, and optimizing 
+                            for cost and performance. Experience with containerization and automation.
+                        </p>
+                    </article>
+
+                    <article class="skill-category">
+                        <div class="skill-header">
+                            <i data-lucide="database" class="skill-icon"></i>
+                            <h3>Databases & Storage</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">Redis</span>
+                            <span class="skill-tag">KeyDB</span>
+                            <span class="skill-tag">Meilisearch</span>
+                            <span class="skill-tag">MongoDB</span>
+                        </div>
+                        <p class="skill-description">
+                            Designing database schemas, optimizing queries, and implementing caching strategies. 
+                            Experience with both SQL and NoSQL databases for different use cases.
+                        </p>
+                    </article>
+
+                    <article class="skill-category">
+                        <div class="skill-header">
+                            <i data-lucide="users" class="skill-icon"></i>
+                            <h3>Leadership & Management</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Team Leadership</span>
+                            <span class="skill-tag">Agile/Scrum</span>
+                            <span class="skill-tag">Project Management</span>
+                            <span class="skill-tag">Mentoring</span>
+                            <span class="skill-tag">Cross-functional Collaboration</span>
+                            <span class="skill-tag">Technical Strategy</span>
+                        </div>
+                        <p class="skill-description">
+                            Leading engineering teams, driving technical decisions, and fostering a culture 
+                            of continuous learning and innovation. Experienced in agile methodologies.
+                        </p>
+                    </article>
+
+                    <article class="skill-category">
+                        <div class="skill-header">
+                            <i data-lucide="shield-check" class="skill-icon"></i>
+                            <h3>Security & Compliance</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-tag">ISO 27001</span>
+                            <span class="skill-tag">Data Protection</span>
+                            <span class="skill-tag">Security Audits</span>
+                            <span class="skill-tag">GDPR Compliance</span>
+                            <span class="skill-tag">Data Masking</span>
+                        </div>
+                        <p class="skill-description">
+                            Implementing security best practices, ensuring compliance with regulations, 
+                            and conducting security audits. Experience with data protection standards.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" x-data="dynamicYear()">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="apple-touch-icon.png" alt="Nandhika H." class="footer-logo-img">
+                        <span class="footer-logo-text">Nandhika H.</span>
+                    </div>
+                    <p class="footer-description">
+                        Full Stack Engineer & Technical Leader with 10+ years of experience 
+                        building scalable applications and leading engineering teams.
+                    </p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h3>Navigation</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="experience.html">Experience</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h3>Connect</h3>
+                        <ul>
+                            <li><a href="https://www.linkedin.com/in/nandhika-h-57753061/" target="_blank">
+                                <i data-lucide="linkedin"></i> LinkedIn
+                            </a></li>
+                            <li><a href="https://github.com/dilettantemode" target="_blank">
+                                <i data-lucide="github"></i> GitHub
+                            </a></li>
+                            <li><a href="https://medium.com/@dilettante_mode" target="_blank">
+                                <i data-lucide="book-open"></i> Medium
+                            </a></li>
+                            <li><a href="mailto:nandhika.wph@gmail.com">
+                                <i data-lucide="mail"></i> Email
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024-<span x-text="getCurrentYear()"></span> Nandhika H. All rights reserved.</p>
+                <p class="footer-tech">Built with HTML5, CSS3, Alpine.js & Pico CSS</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
