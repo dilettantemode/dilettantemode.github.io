@@ -1799,3 +1799,145 @@ html {
         max-width: 400px;
     }
 }
+
+/* Tools page styles */
+.tools-detail {
+    padding: 5rem 0;
+}
+
+.json-prettifier-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.json-prettifier-card {
+    background: var(--bg-secondary);
+    border-radius: 1rem;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-md);
+}
+
+.json-input-section,
+.json-output-section {
+    margin-bottom: 2rem;
+}
+
+.json-input-section label,
+.json-output-section label {
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.json-input-section h3,
+.json-output-section h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.json-textarea {
+    width: 100%;
+    padding: 1rem;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    color: var(--text-primary);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    resize: vertical;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.json-textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.json-textarea:read-only {
+    background: rgba(15, 20, 25, 0.5);
+    cursor: default;
+}
+
+.json-button-section {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.json-button-section .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.json-button-section .btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.json-button-section .btn i {
+    width: 1rem;
+    height: 1rem;
+}
+
+.error-message {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: 0.5rem;
+    color: #fca5a5;
+    font-size: 0.9rem;
+}
+
+.error-message i {
+    width: 1rem;
+    height: 1rem;
+    color: #ef4444;
+    flex-shrink: 0;
+}
+
+/* Responsive design for tools page */
+@media (max-width: 768px) {
+    .tools-detail {
+        padding: 3rem 0;
+    }
+    
+    .json-prettifier-card {
+        padding: 1.5rem;
+    }
+    
+    .json-button-section {
+        flex-direction: column;
+    }
+    
+    .json-button-section .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .tools-detail {
+        padding: 2rem 0;
+    }
+    
+    .json-prettifier-card {
+        padding: 1rem;
+    }
+    
+    .json-textarea {
+        font-size: 0.85rem;
+    }
+}

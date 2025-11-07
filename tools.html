@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="light dark">
-    <title>Nandhika H. - Full Stack Engineer & Technical Leader</title>
-    <meta name="description" content="Experienced Software Engineering Manager with 10+ years in full-stack development, technical leadership, and cloud infrastructure.">
+    <title>JSON Prettifier - Tools | Nandhika H.</title>
+    <meta name="description" content="Format and prettify JSON with proper indentation and spacing.">
     
     <!-- Favicon and Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -36,7 +36,7 @@
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="experience.html">Experience</a></li>
-                <li><a href="tools.html">Tools</a></li>
+                <li><a href="blog.html">Blog</a></li>
                 <li><a href="about.html">About</a></li>
             </ul>
         </nav>
@@ -47,77 +47,62 @@
             <div class="loading-spinner"></div>
         </div>
         
-        <section class="hero page-content" :class="{ 'page-transition': !isLoaded, 'loaded': isLoaded }">
+        <section class="page-hero bg-hero" :class="{ 'page-transition': !isLoaded, 'loaded': isLoaded }">
             <div class="container">
-                <div class="hero-content" style="padding-top: 75px;">
-                    <div class="hero-text">
-                        <h1>Full Stack Engineer & Technical Leader</h1>
-                        <p class="subtitle">10+ years of experience building scalable applications</p>
-                        <p class="description">
-                            Experienced Software Engineering Manager with expertise in full-stack development, 
-                            cloud infrastructure, and leading high-performing engineering teams. Passionate about 
-                            delivering technical solutions that drive business impact.
-                        </p>
-                        <div class="cta-buttons">
-                            <a href="experience.html" class="btn btn-primary" style="padding: 15px;" @click="navigateToPage($event)">View Experience</a>
-                            <a href="about.html" class="btn btn-secondary text-alt-secondary" style="padding: 15px;" @click="navigateToPage($event)">Get In Touch</a>
+                <div class="hero-txt">
+                    <h1 class="page-title">JSON Prettifier</h1>
+                    <p class="page-subtitle">Format and beautify your JSON with proper indentation and spacing</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="tools-detail" :class="{ 'page-transition': !isLoaded, 'loaded': isLoaded }">
+            <div class="container">
+                <div x-data="jsonPrettifier()" class="json-prettifier-container">
+                    <div class="json-prettifier-card">
+                        <div class="json-input-section">
+                            <label for="json-input">
+                                <h3>Raw JSON Input</h3>
+                            </label>
+                            <textarea 
+                                id="json-input"
+                                x-model="rawJson"
+                                placeholder='Paste your JSON here, e.g., {"name":"John","age":30,"city":"New York"}'
+                                rows="10"
+                                class="json-textarea"></textarea>
                         </div>
-                    </div>
-                    <div class="hero-visual" x-data="techCardHover()">
-                        <div class="tech-grid animate-stagger">
-                            <div class="tech-card" 
-                                 @mouseenter="setHoveredCard('react')"
-                                 @mouseleave="clearHoveredCard()"
-                                 :class="{ 'hovered': hoveredCard === 'react' }">
-                                <div class="tech-icon">
-                                    <i data-lucide="atom" style="color: #61dafb;"></i>
-                                </div>
-                                <div class="tech-name">React/Next.js</div>
-                            </div>
-                            <div class="tech-card" 
-                                 @mouseenter="setHoveredCard('typescript')"
-                                 @mouseleave="clearHoveredCard()"
-                                 :class="{ 'hovered': hoveredCard === 'typescript' }">
-                                <div class="tech-icon">
-                                    <i data-lucide="code" style="color: #3178c6;"></i>
-                                </div>
-                                <div class="tech-name">TypeScript</div>
-                            </div>
-                            <div class="tech-card" 
-                                 @mouseenter="setHoveredCard('go')"
-                                 @mouseleave="clearHoveredCard()"
-                                 :class="{ 'hovered': hoveredCard === 'go' }">
-                                <div class="tech-icon">
-                                    <i data-lucide="terminal" style="color: #00add8;"></i>
-                                </div>
-                                <div class="tech-name">Go</div>
-                            </div>
-                            <div class="tech-card" 
-                                 @mouseenter="setHoveredCard('aws')"
-                                 @mouseleave="clearHoveredCard()"
-                                 :class="{ 'hovered': hoveredCard === 'aws' }">
-                                <div class="tech-icon">
-                                    <i data-lucide="cloud" style="color: #ff9900;"></i>
-                                </div>
-                                <div class="tech-name">AWS</div>
-                            </div>
-                            <div class="tech-card" 
-                                 @mouseenter="setHoveredCard('cloudflare')"
-                                 @mouseleave="clearHoveredCard()"
-                                 :class="{ 'hovered': hoveredCard === 'cloudflare' }">
-                                <div class="tech-icon">
-                                    <i data-lucide="shield" style="color: #f38020;"></i>
-                                </div>
-                                <div class="tech-name">Cloudflare</div>
-                            </div>
-                            <div class="tech-card" 
-                                 @mouseenter="setHoveredCard('postgresql')"
-                                 @mouseleave="clearHoveredCard()"
-                                 :class="{ 'hovered': hoveredCard === 'postgresql' }">
-                                <div class="tech-icon">
-                                    <i data-lucide="database" style="color: #336791;"></i>
-                                </div>
-                                <div class="tech-name">PostgreSQL</div>
+
+                        <div class="json-button-section">
+                            <button 
+                                @click="prettifyJson()" 
+                                class="btn btn-primary"
+                                :disabled="!rawJson.trim()">
+                                <i data-lucide="sparkles"></i>
+                                Prettify JSON
+                            </button>
+                            <button 
+                                @click="clearAll()" 
+                                class="btn btn-secondary"
+                                x-show="rawJson || prettyJson">
+                                <i data-lucide="x"></i>
+                                Clear
+                            </button>
+                        </div>
+
+                        <div class="json-output-section" x-show="prettyJson || error">
+                            <label for="json-output">
+                                <h3>Pretty JSON Output</h3>
+                            </label>
+                            <textarea 
+                                id="json-output"
+                                x-model="prettyJson"
+                                placeholder="Formatted JSON will appear here..."
+                                rows="10"
+                                class="json-textarea"
+                                readonly></textarea>
+                            <div x-show="error" class="error-message">
+                                <i data-lucide="alert-circle"></i>
+                                <span x-text="error"></span>
                             </div>
                         </div>
                     </div>
@@ -178,6 +163,48 @@
         </div>
     </footer>
 
+    <script>
+        // JSON Prettifier functionality
+        function jsonPrettifier() {
+            return {
+                rawJson: '',
+                prettyJson: '',
+                error: '',
+                
+                prettifyJson() {
+                    this.error = '';
+                    this.prettyJson = '';
+                    
+                    if (!this.rawJson.trim()) {
+                        this.error = 'Please enter some JSON to prettify.';
+                        return;
+                    }
+                    
+                    try {
+                        // Parse the JSON to validate it
+                        const parsed = JSON.parse(this.rawJson);
+                        
+                        // Stringify with proper indentation (2 spaces)
+                        this.prettyJson = JSON.stringify(parsed, null, 2);
+                    } catch (e) {
+                        this.error = 'Invalid JSON: ' + e.message;
+                        this.prettyJson = '';
+                    }
+                },
+                
+                clearAll() {
+                    this.rawJson = '';
+                    this.prettyJson = '';
+                    this.error = '';
+                }
+            }
+        }
+        
+        // Export for Alpine.js
+        window.jsonPrettifier = jsonPrettifier;
+    </script>
+
     <script src="script.js"></script>
 </body>
 </html>
+
